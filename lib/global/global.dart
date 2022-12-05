@@ -1,5 +1,7 @@
 import '../modals/product_modal.dart';
 
+int? indexForDetailScreen;
+
 List<Product> products = [
   Product(
     name: "Avodaka Salad",

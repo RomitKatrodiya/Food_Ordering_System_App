@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../controllers/products_list_controller.dart';
+import '../../global/global.dart';
 import '../components/product_container.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -176,9 +177,16 @@ class HomeScreen extends StatelessWidget {
                 ),
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int i) {
-                    return productContainer(
-                      productListController: productListController,
-                      i: i,
+                    return InkWell(
+                      borderRadius: BorderRadius.circular(25),
+                      onTap: () {
+                        indexForDetailScreen = i;
+                        Get.toNamed("/details_screen");
+                      },
+                      child: productContainer(
+                        productListController: productListController,
+                        i: i,
+                      ),
                     );
                   },
                   childCount: productListController.products.length,

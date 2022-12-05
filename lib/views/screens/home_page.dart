@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import '../../controllers/products_list_controller.dart';
 import '../components/nevigation_bar_icon.dart';
 import 'cart_screen.dart';
 import 'favorite_screen.dart';
@@ -11,6 +13,8 @@ class HomePage extends StatelessWidget {
 
   final PersistentTabController _controller =
       PersistentTabController(initialIndex: 0);
+  final ProductListController productListController =
+      Get.find<ProductListController>();
 
   @override
   Widget build(BuildContext context) {

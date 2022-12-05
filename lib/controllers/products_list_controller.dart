@@ -28,18 +28,21 @@ class ProductListController extends GetxController {
 
     products[indexOfProduct].isLike = !products[indexOfProduct].isLike;
 
-    if (products[index].isLike == false) {
-      await ProductDBHelper.productDBHelper
-          .updateFavourite(id: products[indexOfProduct].id, isLike: "false");
-      favouriteIndex.add(index);
+    if (products[indexOfProduct].isLike == false) {
+      // await ProductDBHelper.productDBHelper
+      //     .updateFavourite(id: products[indexOfProduct].id, isLike: "false");
+      // favouriteIndex.add(index);
+      favouriteIndex.add(indexOfProduct);
       favouriteProductList.add(product);
     } else {
-      await ProductDBHelper.productDBHelper
-          .updateFavourite(id: products[indexOfProduct].id, isLike: "true");
-      favouriteIndex.remove(index);
+      // await ProductDBHelper.productDBHelper
+      //     .updateFavourite(id: products[indexOfProduct].id, isLike: "true");
+      // favouriteIndex.remove(index);
+      favouriteIndex.remove(indexOfProduct);
       favouriteProductList.remove(product);
     }
-    favouriteProduct[indexOfProduct] = !favouriteProduct[indexOfProduct];
+
+    update();
   }
 
   addToCart({required ProductDB product}) {
